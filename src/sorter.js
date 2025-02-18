@@ -9,10 +9,11 @@
  * @returns {Promise<Array<Object>>} 
  */
 export default async function sorter(client, name) {
+  let cursor;
   let hasMore = true;
-  let cursor;  
   const sorted = [];
 
+  // Loop until no more pages
   do {
     const { products, pageInfo } = await client.productsByTitle(name, cursor);
     hasMore = pageInfo.hasNextPage;
@@ -29,6 +30,7 @@ export default async function sorter(client, name) {
     }
   } while (hasMore);
 
+  // Sort our result by price, low to high
   sorted.sort((a, b) => {
     if (a.price > b.price) {
       return 1;
