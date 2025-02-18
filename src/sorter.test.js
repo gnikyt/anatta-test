@@ -1,8 +1,8 @@
-import { before, describe, it, mock } from "node:test";
-import assert from "node:assert";
 import fs from "fs/promises";
-import ShopDomain from "./shopify/domain.js";
+import assert from "node:assert";
+import { before, describe, it, mock } from "node:test";
 import ShopifyClient from "./shopify/client.js";
+import ShopDomain from "./shopify/domain.js";
 import sorter from "./sorter.js";
 
 describe("sorter", () => {

@@ -1,5 +1,6 @@
 /**
  * Parses CLI arguments by grouping them into pairs.
+ * Simply opted to do this manually for this instance instead of Node's builtin.
  * @param {Array<string>} src Source for arguments to parse.
  * @returns {Object}
  */

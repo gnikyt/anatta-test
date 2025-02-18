@@ -1,8 +1,8 @@
-import { before, describe, it, mock } from "node:test";
-import assert from "node:assert";
 import fs from "fs/promises";
-import ShopDomain from "./domain.js";
+import assert from "node:assert";
+import { describe, it, mock } from "node:test";
 import ShopifyClient from "./client.js";
+import ShopDomain from "./domain.js";
 
 describe("ShopifyClient service", () => {
   it("should throw error for non-shopdomain object", () => {
