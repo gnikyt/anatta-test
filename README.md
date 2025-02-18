@@ -32,7 +32,7 @@ Example:
   node app.js --name snow --token xyz123
 ```
 
-Both `-name` and `-token` are required.
+Both `name` and `token` are required arguments to run.
 
 ### Example Output
 
