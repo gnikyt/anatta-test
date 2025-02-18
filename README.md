@@ -20,16 +20,16 @@ Nothing to install, there are no external dependencies required.
 
 ## Running
 
-via `node app.js -help`:
+via `node app.js --help`:
 
 ```
 Display a list of products matching a partial product name input.
 
 Usage:
-  node app.js -name [partial product name] -token [Shopify API token]
+  node app.js --name [partial product name] --token [Shopify API token]
 
 Example:
-  node app.js -name snow -token xyz123
+  node app.js --name snow --token xyz123
 ```
 
 Both `-name` and `-token` are required.

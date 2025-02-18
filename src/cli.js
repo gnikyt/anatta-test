@@ -17,7 +17,7 @@ export function parseArgs(src = process.argv) {
       args[lastKey] = pargs[i].trim().replace(/"/g, "").replace(/'/g, "");
     } else {
       // Attempt to clean up key by removing the "-" (dash) and trimming
-      lastKey = pargs[i].trim().substring(1);
+      lastKey = pargs[i].trim().replace(/^--?/, '');
       args[lastKey] = undefined;
     }
   }
@@ -45,9 +45,9 @@ export function usageDisplay() {
 Display a list of products matching a partial product name input.
 
 Usage:
-  node app.js -name [partial product name] -token [Shopify API token]
+  node app.js --name [partial product name] --token [Shopify API token]
 
 Example:
-  node app.js -name snow -token xyz123
+  node app.js --name snow -token xyz123
   `;
 }
