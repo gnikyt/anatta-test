@@ -1,0 +1,12 @@
+{
+  "name": "anatta",
+  "version": "1.0.0",
+  "description": "Anatta test project.",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "Tyler King <tyler.n.king@gmail.com>",
+  "license": "UNLICENSED"
+}

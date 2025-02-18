@@ -1,0 +1,121 @@
+/**
+ * Product GraphQL query generator.
+ * @param {String} query Query to run for the products.
+ * @param {Number} first How many records to pull.
+ * @param {String|undefined} cursor Optional after cursor for records. 
+ * @example
+ *  const query = productQuery("title:*snow*", 50);
+ * @returns {String}
+ */
+function productQuery(query, first = 50, cursor = undefined) {
+  const args = {
+    first,
+    query,
+    after: undefined,
+  };
+  if (cursor) {
+    args.after = cursor;
+  }
+
+  // Format the arguments for the GraphQL call
+  const fmtArgs = Object.entries(args)
+    .filter(([k,v ]) => v !== undefined)
+    .map(([k, v]) => {
+      return typeof v === "string" ? `${k}: "${v}"` : `${k}: ${v}`;
+    })
+    .join(", ");
+
+  return `{
+    products(${fmtArgs}) {
+      edges {
+        node {
+          id
+          title
+          variants(first: 10) {
+            edges {
+              node {
+                id
+                title
+              }
+            }
+          }
+        }
+      }
+      pageInfo {
+        hasPreviousPage
+        hasNextPage
+        startCursor
+        endCursor
+      }
+    }
+  }`;
+}
+
+/**
+ * GraphQL client for communication with Shopify's API.
+ * @param {ShopDomain} store Shopify store name ([name].myshopify.com).
+ * @param {String} token Shopify API token. 
+ * @param {String} param2.apiVersion Shopify API version.
+ * @throws Error if shop is not supplied.
+ * @throws Error if token is not supplied.
+ * @example
+ *   const client = ShopifyClient(ShopDomain("example"), "abc123");
+ *   const products = await client.productsByTitle("snow");
+ * @returns {Object} 
+ */
+export default function ShopifyClient(store, token, { apiVersion = "2025-01" } = {}) {
+  if (!store.isSame) {
+    throw new Error("expected ShopDomain object for store value");
+  }
+  if (!token || token.length === 0) {
+    throw new Error("missing token");
+  }
+
+  // Base URL for running netwrok requests
+  const baseUrl = `https://${store}/admin/api/${apiVersion}/graphql.json`;
+
+  /**
+   * Run a GraphQL request to Shopify.
+   * @param {String} query GraphQL query to run.
+   * @param {Object} variables GraphQL variables for the query (optional).
+   * @returns {Promise<Object>} 
+   */
+  async function request(query, variables = {}) {
+    const resp = await fetch(baseUrl, {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+        "x-shopify-access-token": token,
+      },
+      body: JSON.stringify({ query, variables }),
+    });
+    return resp.json();
+  }
+
+  /**
+   * Get products by title.
+   * A title input of "snow" will search for "*snow*".
+   * @param {String} title Partial or full title to search for matching products.
+   * @param {String} cursor Optional cursor.
+   * @returns {Promise<Object>} Containing an object of `products` and `pageInfo`.
+   */
+  async function productsByTitle(title, cursor = undefined) {
+    const fmtTitle = title.toLowerCase().replace(/\*/g, "");
+    const {
+      data: {
+        products: {
+          pageInfo,
+          edges: products,
+        },
+      },
+    } = await request(productQuery(fmtTitle));
+    return {
+      products,
+      pageInfo,
+    };
+  }
+
+  return {
+    productsByTitle,
+  };
+}
