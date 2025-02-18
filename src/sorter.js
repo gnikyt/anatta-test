@@ -1,7 +1,3 @@
-// function fetchProducts(name, cursor = undefined) {
-
-// }
-
 /**
  * Sorter uses the client to query products based on the name input.
  * It will then sort the products' variants by price and return an object
