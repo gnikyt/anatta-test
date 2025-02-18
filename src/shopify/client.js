@@ -7,7 +7,7 @@
  *  const query = productQuery("title:*snow*", 50);
  * @returns {String}
  */
-function productQuery(query, first = 50, cursor = undefined) {
+function productQuery(query, first = 1, cursor = undefined) {
   const args = {
     first,
     query,
@@ -108,7 +108,7 @@ export default function ShopifyClient(store, token, { apiVersion = "2025-01" } =
           edges: products,
         },
       },
-    } = await request(productQuery(fmtTitle));
+    } = await request(productQuery(fmtTitle, cursor));
     return {
       products,
       pageInfo,
