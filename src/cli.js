@@ -12,8 +12,10 @@ export function parseArgs(src = process.argv) {
   let lastKey = "";
   for (let i = 0, n = pargs.length; i < n; i += 1) {
     if (i % 2 !== 0) {
-      args[lastKey] = pargs[i].trim();
+      // Attempt to clean up value by removing quotes and trimming
+      args[lastKey] = pargs[i].trim().replace(/"/g, "").replace(/'/g, "");
     } else {
+      // Attempt to clean up key by removing the "-" (dash) and trimming
       lastKey = pargs[i].trim().substring(1);
       args[lastKey] = undefined;
     }

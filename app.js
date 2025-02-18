@@ -1,6 +1,7 @@
 import { parseArgs, usageDisplay } from "./src/cli.js";
 import Client from "./src/shopify/client.js";
 import ShopDomain from "./src/shopify/domain.js";
+import sorter from "./src/sorter.js";
 
 /**
  * Boot simply does some checks on the arguments to ensure we can continue.
@@ -35,8 +36,8 @@ async function main() {
   }
 
   const client = Client(ShopDomain("quickstart-20a6d55c"), args.token);
-  const products = await client.productsByTitle("snow");
-  console.log(products);
+  const sorted = await sorter(client, args.name);
+  console.log(sorted);
 }
 
 main();

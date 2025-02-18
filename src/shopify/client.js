@@ -1,13 +1,13 @@
 /**
  * Product GraphQL query generator.
  * @param {String} query Query to run for the products.
- * @param {Number} first How many records to pull.
- * @param {String|undefined} cursor Optional after cursor for records. 
+ * @param {Number} param1.first How many records to pull.
+ * @param {String|undefined} param1.cursor Optional after cursor for records. 
  * @example
- *  const query = productQuery("title:*snow*", 50);
+ *  const query = productQuery("title:*snow*", { first: 50 });
  * @returns {String}
  */
-function productQuery(query, first = 1, cursor = undefined) {
+function productQuery(query, { first = 50, cursor = undefined } = {}) {
   const args = {
     first,
     query,
@@ -108,7 +108,7 @@ export default function ShopifyClient(store, token, { apiVersion = "2025-01" } =
           edges: products,
         },
       },
-    } = await request(productQuery(fmtTitle, cursor));
+    } = await request(productQuery(fmtTitle, { cursor, first: 50 }));
     return {
       products,
       pageInfo,
