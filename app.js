@@ -1,6 +1,6 @@
-import { parseArgs, usageDisplay } from "./cli.js";
-import Client from "./shopify/client.js";
-import ShopDomain from "./shopify/domain.js";
+import { parseArgs, usageDisplay } from "./src/cli.js";
+import Client from "./src/shopify/client.js";
+import ShopDomain from "./src/shopify/domain.js";
 
 /**
  * Boot simply does some checks on the arguments to ensure we can continue.
