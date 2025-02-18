@@ -26,6 +26,10 @@ function boot() {
   return args;
 }
 
+/**
+ * Main runner.
+ * @returns {Promise<void>}
+ */
 async function main() {
   let args;
   try {
@@ -37,7 +41,6 @@ async function main() {
 
   const client = Client(ShopDomain("quickstart-20a6d55c"), args.token);
   const sorted = await sorter(client, args.name);
-  console.log(sorted);
 }
 
 main();

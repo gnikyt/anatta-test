@@ -31,7 +31,7 @@ function productQuery(query, { first = 50, cursor = undefined } = {}) {
         node {
           id
           title
-          variants(first: 10) {
+          variants(first: 25) {
             edges {
               node {
                 id

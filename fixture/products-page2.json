@@ -118,9 +118,9 @@
       ],
       "pageInfo": {
         "hasPreviousPage": true,
-        "hasNextPage": true,
+        "hasNextPage": false,
         "startCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMTMzODU5LCJsYXN0X3ZhbHVlIjo3MDY2NzkwMTMzODU5fQ==",
-        "endCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMjY0OTMxLCJsYXN0X3ZhbHVlIjo3MDY2NzkwMjY0OTMxfQ=="
+        "endCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMTMzODU5LCJsYXN0X3ZhbHVlIjo3MDY2NzkwMTMzODU5fQ=="
       }
     }
   },

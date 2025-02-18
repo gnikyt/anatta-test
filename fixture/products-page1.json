@@ -11,7 +11,8 @@
                 {
                   "node": {
                     "id": "gid://shopify/ProductVariant/40922595721315",
-                    "title": "Default Title"
+                    "title": "Default Title",
+                    "price": "885.95"
                   }
                 }
               ]
@@ -27,7 +28,8 @@
                 {
                   "node": {
                     "id": "gid://shopify/ProductVariant/41272682512483",
-                    "title": "Red"
+                    "title": "Red",
+                    "price": "885.95"
                   }
                 }
               ]
@@ -43,7 +45,8 @@
                 {
                   "node": {
                     "id": "gid://shopify/ProductVariant/40922595819619",
-                    "title": "Default Title"
+                    "title": "Default Title",
+                    "price": "749.95"
                   }
                 }
               ]
@@ -59,7 +62,8 @@
                 {
                   "node": {
                     "id": "gid://shopify/ProductVariant/40922595852387",
-                    "title": "Default Title"
+                    "title": "Default Title",
+                    "price": "2629.95"
                   }
                 }
               ]
@@ -75,7 +79,8 @@
                 {
                   "node": {
                     "id": "gid://shopify/ProductVariant/40922596081763",
-                    "title": "Default Title"
+                    "title": "Default Title",
+                    "price": "629.95"
                   }
                 }
               ]
@@ -97,7 +102,7 @@
       "actualQueryCost": 14,
       "throttleStatus": {
         "maximumAvailable": 2000,
-        "currentlyAvailable": 1625,
+        "currentlyAvailable": 1952,
         "restoreRate": 100
       }
     },
