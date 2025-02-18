@@ -68,54 +68,52 @@ export default function ShopifyClient(store, token, { apiVersion = "2025-01" } =
     throw new Error("expected ShopDomain object for store value");
   }
   if (!token || token.length === 0) {
-    throw new Error("missing token");
+    throw new Error("missing token value");
   }
 
   // Base URL for running netwrok requests
   const baseUrl = `https://${store}/admin/api/${apiVersion}/graphql.json`;
 
-  /**
-   * Run a GraphQL request to Shopify.
-   * @param {String} query GraphQL query to run.
-   * @param {Object} variables GraphQL variables for the query (optional).
-   * @returns {Promise<Object>} 
-   */
-  async function request(query, variables = {}) {
-    const resp = await fetch(baseUrl, {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-        "x-shopify-access-token": token,
-      },
-      body: JSON.stringify({ query, variables }),
-    });
-    return resp.json();
-  }
-
-  /**
-   * Get products by title.
-   * A title input of "snow" will search for "*snow*".
-   * @param {String} title Partial or full title to search for matching products.
-   * @param {String} cursor Optional cursor.
-   * @returns {Promise<Object>} Containing an object of `products` and `pageInfo`.
-   */
-  async function productsByTitle(title, cursor = undefined) {
-    const fmtTitle = title.toLowerCase().replace(/\*/g, "");
-    const {
-      data: {
-        products: {
-          pageInfo,
-          edges: products,
-        },
-      },
-    } = await request(productQuery(fmtTitle, { cursor, first: 50 }));
-    return {
-      products,
-      pageInfo,
-    };
-  }
-
   return {
-    productsByTitle,
+    /**
+     * Run a GraphQL request to Shopify.
+     * @param {String} query GraphQL query to run.
+     * @param {Object} variables GraphQL variables for the query (optional).
+     * @returns {Promise<Object>} 
+     */
+    async request(query, variables = {}) {
+      const resp = await fetch(baseUrl, {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+          "x-shopify-access-token": token,
+        },
+        body: JSON.stringify({ query, variables }),
+      });
+      return resp.json();
+    },
+
+    /**
+     * Get products by title.
+     * A title input of "snow" will search for "*snow*".
+     * @param {String} title Partial or full title to search for matching products.
+     * @param {String} cursor Optional cursor.
+     * @returns {Promise<Object>} Containing an object of `products` and `pageInfo`.
+     */
+    async productsByTitle(title, cursor = undefined) {
+      const fmtTitle = title.toLowerCase().replace(/\*/g, "");
+      const {
+        data: {
+          products: {
+            pageInfo,
+            edges: products,
+          },
+        },
+      } = await this.request(productQuery(fmtTitle, { cursor, first: 50 }));
+      return {
+        products,
+        pageInfo,
+      };
+    },
   };
 }

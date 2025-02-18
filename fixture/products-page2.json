@@ -1,0 +1,150 @@
+{
+  "data": {
+    "products": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790133859",
+            "title": "The Complete Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596016227",
+                    "title": "Ice",
+                    "price": "699.95"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596048995",
+                    "title": "Dawn",
+                    "price": "699.95"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596114531",
+                    "title": "Powder",
+                    "price": "99.95"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596180067",
+                    "title": "Electric",
+                    "price": "100.95"
+                  }
+                },
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596212835",
+                    "title": "Sunset",
+                    "price": "101.95"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790166627",
+            "title": "The Compare at Price Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596147299",
+                    "title": "Default Title",
+                    "price": "785.95"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790199395",
+            "title": "The Collection Snowboard: Hydrogen",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596245603",
+                    "title": "Default Title",
+                    "price": "600.00"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790232163",
+            "title": "The Out of Stock Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596278371",
+                    "title": "Default Title",
+                    "price": "885.95"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790264931",
+            "title": "The Multi-location Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596573283",
+                    "title": "Default Title",
+                    "price": "729.95"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasPreviousPage": true,
+        "hasNextPage": true,
+        "startCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMTMzODU5LCJsYXN0X3ZhbHVlIjo3MDY2NzkwMTMzODU5fQ==",
+        "endCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMjY0OTMxLCJsYXN0X3ZhbHVlIjo3MDY2NzkwMjY0OTMxfQ=="
+      }
+    }
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 23,
+      "actualQueryCost": 14,
+      "throttleStatus": {
+        "maximumAvailable": 2000,
+        "currentlyAvailable": 1986,
+        "restoreRate": 100
+      }
+    },
+    "search": [
+      {
+        "path": [
+          "products"
+        ],
+        "query": "title:*snow*",
+        "parsed": {
+          "field": "title",
+          "match_prefix": "*snow"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "data": {
+    "products": {
+      "edges": [
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066789904483",
+            "title": "The Minimal Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922595721315",
+                    "title": "Default Title"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066789937251",
+            "title": "The Videographer Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/41272682512483",
+                    "title": "Red"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790002787",
+            "title": "The Hidden Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922595819619",
+                    "title": "Default Title"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790035555",
+            "title": "The Draft Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922595852387",
+                    "title": "Default Title"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "id": "gid://shopify/Product/7066790101091",
+            "title": "The Archived Snowboard",
+            "variants": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "gid://shopify/ProductVariant/40922596081763",
+                    "title": "Default Title"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "pageInfo": {
+        "hasPreviousPage": false,
+        "hasNextPage": true,
+        "startCursor": "eyJsYXN0X2lkIjo3MDY2Nzg5OTA0NDgzLCJsYXN0X3ZhbHVlIjo3MDY2Nzg5OTA0NDgzfQ==",
+        "endCursor": "eyJsYXN0X2lkIjo3MDY2NzkwMTAxMDkxLCJsYXN0X3ZhbHVlIjo3MDY2NzkwMTAxMDkxfQ=="
+      }
+    }
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 23,
+      "actualQueryCost": 14,
+      "throttleStatus": {
+        "maximumAvailable": 2000,
+        "currentlyAvailable": 1625,
+        "restoreRate": 100
+      }
+    },
+    "search": [
+      {
+        "path": [
+          "products"
+        ],
+        "query": "title:*snow*",
+        "parsed": {
+          "field": "title",
+          "match_prefix": "*snow"
+        }
+      }
+    ]
+  }
+}
