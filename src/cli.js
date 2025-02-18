@@ -20,7 +20,19 @@ export function parseArgs(src = process.argv) {
       args[lastKey] = undefined;
     }
   }
-  return args;
+
+  return {
+    ...args,
+
+    /**
+     * Check for presence of a key.
+     * @param {String} key Key to check presence of.
+     * @returns {Boolean}
+     */
+    has(key) {
+      return Object.keys(this).includes(key);
+    },
+  };
 }
 
 /**

@@ -27,7 +27,7 @@ export default async function sorter(client, name) {
         sorted.push({
           title: pTitle,
           variant: vTitle,
-          price: Number(price),
+          price: parseFloat(price),
         });
       }
     }

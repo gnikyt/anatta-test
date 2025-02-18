@@ -36,6 +36,7 @@ function productQuery(query, { first = 50, cursor = undefined } = {}) {
               node {
                 id
                 title
+                price
               }
             }
           }
